@@ -1,0 +1,21 @@
+--- shellinabox-2.14.orig/shellinabox/shellinaboxd.c	2012-04-21 19:30:44.000000000 +0200
++++ shellinabox-2.14/shellinabox/shellinaboxd.c	2014-02-05 14:11:16.000000000 +0100
+@@ -355,12 +355,12 @@
+   }
+ 
+   // Sanity check
+-  if (!isNew && strcmp(session->peerName, httpGetPeerName(http))) {
+-    error("Peername changed from %s to %s",
+-          session->peerName, httpGetPeerName(http));
+-    httpSendReply(http, 400, "Bad Request", NO_MSG);
+-    return HTTP_DONE;
+-  }
++  //if (!isNew && strcmp(session->peerName, httpGetPeerName(http))) {
++  //  error("Peername changed from %s to %s",
++  //        session->peerName, httpGetPeerName(http));
++  //  httpSendReply(http, 400, "Bad Request", NO_MSG);
++  //  return HTTP_DONE;
++  //}
+ 
+   const HashMap *args     = urlGetArgs(session->url);
+   int oldWidth            = session->width;
