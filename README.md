@@ -1,21 +1,9 @@
-# shellinabox @ CloudFoundry
+Shellinabox on Predix <dm@ge.com>
 
-## 1. Clone this repository
+1) Set your password:
+	echo -n "p@ssw0rd" |shasum -a 256 >passwd
 
-```bash
-git clone git@github.com:trucker/shellinabox.git
-```
+2) Push your app
+	cf push dm-sib
 
-## 2. Create `passwd` file
-
-```bash
-cd shellinabox  # cd to repository
-echo -n "p@ssw0rd" |shasum -a 256 >passwd
-```
-
-## 3. Push
-
-```bash
-cf push --buildpack https://github.com/ryandotsmith/null-buildpack --command ./run
-```
-
+	

@@ -8,11 +8,15 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 read -s -p "Password: " password
 echo
 
-set -e # make sure we exit on shasum check error
+set -e
 echo -n "${password}" |shasum -a 256 -c "$SCRIPTPATH/passwd" -s
-set +e # disable exit on error
-
+set +e
 
 # on success, start bash as a login shell
+echo "Logged in, executing bash"
 cd $HOME
-exec bash -l
+exec /bin/bash -l
+
+
+
+

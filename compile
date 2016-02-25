@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd $1
+ls -la 
+wget https://shellinabox.googlecode.com/files/shellinabox-2.14.tar.gz
+tar -zxvf shellinabox-2.14.tar.gz
+cd shellinabox-2.14
+patch -p1 <../disable_sanity_check.patch
+./configure
+make
+

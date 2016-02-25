@@ -1,0 +1,10 @@
+---
+applications:
+- name: dm-shellinabox
+  memory: 128M
+  instances: 1
+  domain: run.aws-usw02-pr.ice.predix.io
+  path: .
+  buildpack: https://github.com/dmagyar/null-buildpack.git
+  command: ./run
+

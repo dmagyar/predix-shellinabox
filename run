@@ -3,13 +3,8 @@
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 
-wget https://shellinabox.googlecode.com/files/shellinabox-2.14.tar.gz
-tar -zxvf shellinabox-2.14.tar.gz
-
 cd shellinabox-2.14
-patch -p1 <../disable_sanity_check.patch
-./configure
-make
-
-./shellinaboxd -p $PORT -s "/:$(id -u):$(id -g):$HOME:$SCRIPTPATH/login"
+set >/tmp/set-at-run
+echo "Running shellinaboxd on port $PORT"
+./shellinaboxd -p $PORT -s "/:$(id -u):$(id -g):$HOME:$SCRIPTPATH/login" --disable-ssl
 
